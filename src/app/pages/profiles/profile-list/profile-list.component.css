@@ -1,0 +1,5 @@
+@media(max-width: 768px) {
+  th {
+    font-size: 12px;
+  }
+}
