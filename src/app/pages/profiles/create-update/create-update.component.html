@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Your fullname" required [(ngModel)]="profile.name" (ngModelChange)="onProfileChange()" name="name">
+      <div class="invalid-feedback">
+        Please write your name.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="role" class="form-label">Role</label>
+      <input type="text" class="form-control" id="role" placeholder="Your role in the company" required [(ngModel)]="profile.role" (ngModelChange)="onProfileChange()" name="role">
+      <div class="invalid-feedback">
+        Please write your role.
+      </div>
+    </div>
+    <div class="mb-3 col-auto">
+      <label for="age" class="form-label">Age</label>
+      <input type="number" class="form-control" id="age" min="1" max="100" placeholder="Your age" style="width: 125px;" required [(ngModel)]="profile.age" (ngModelChange)="onProfileChange()" name="age">
+      <div class="invalid-feedback">
+        Please put your age.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Your best email" required [(ngModel)]="profile.email" (ngModelChange)="onProfileChange()" name="email">
+      <div class="invalid-feedback">
+        Please write your email.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="country" class="form-label">Country</label>
+      <input type="text" class="form-control" id="country" placeholder="Your country" [(ngModel)]="profile.country" (ngModelChange)="onProfileChange()" name="country">
+    </div>
+    <div class="mb-3">
+      <label for="exp" class="form-label">Experience</label>
+      <input type="text" class="form-control" id="exp" placeholder="Your job experience" [(ngModel)]="profile.experience" (ngModelChange)="onProfileChange()" name="experience">
+    </div>
+    <div class=" my-5 form-check">
+      <input class="form-check-input" type="checkbox" id="flexCheckDefault" [(ngModel)]="profile.isActive" (ngModelChange)="onProfileChange()" name="isActive">
+      <label class="form-check-label" for="flexCheckDefault">
+        Is it Active at company?
+      </label>
+    </div>
+
+    <div class="d-flex gap-1">
+      <button type="submit" class="btn btn-success" [disabled]="!profile.age || !profile.name || !profile.role || !profile.email || profile.age > 100 || isProfileUnchanged">Save</button>
+      <button class="btn btn-primary" routerLink="/profile">Cancel</button>
+    </div>
+  </form>
+</div>
